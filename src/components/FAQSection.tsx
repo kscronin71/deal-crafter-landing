@@ -10,18 +10,18 @@ const faqs = [
   },
   {
     question: 'Are the AI-generated emails really personalized?',
-    answer: 'Yes! Our AI analyzes each prospect\'s company, role, industry, and recent activities to create truly personalized messages. Unlike generic templates, every email is crafted specifically for that individual prospect to maximize reply rates.'
+    answer: 'Yes! Our AI analyzes each prospect&apos;s company, role, industry, and recent activities to create truly personalized messages. Unlike generic templates, every email is crafted specifically for that individual prospect to maximize reply rates.'
   },
   {
-    question: 'What if I\'m not satisfied with the results?',
-    answer: 'We offer a 30-day money-back guarantee. If you\'re not seeing results within your first month, we\'ll refund your subscription no questions asked. We\'re confident you\'ll see the value immediately.'
+    question: 'What if I&apos;m not satisfied with the results?',
+    answer: 'We offer a 30-day money-back guarantee. If you&apos;re not seeing results within your first month, we&apos;ll refund your subscription no questions asked. We&apos;re confident you&apos;ll see the value immediately.'
   },
   {
     question: 'How long does it take to get started?',
-    answer: 'Setup takes just 5 minutes. Simply connect your email, define your target market, and our AI starts finding and reaching out to qualified prospects immediately. You\'ll see your first results within 24 hours.'
+    answer: 'Setup takes just 5 minutes. Simply connect your email, define your target market, and our AI starts finding and reaching out to qualified prospects immediately. You&apos;ll see your first results within 24 hours.'
   },
   {
-    question: 'Can I customize the AI\'s approach?',
+    question: 'Can I customize the AI&apos;s approach?',
     answer: 'Absolutely! You can set your own messaging tone, customize your value proposition, and even upload your own templates. The AI learns from your preferences and gets better over time.'
   },
   {
@@ -46,7 +46,7 @@ export default function FAQSection() {
             Everything you need to know
           </p>
           <p className="mt-6 text-xl leading-8 text-gray-600">
-            Got questions? We've got answers
+            Got questions? We&apos;ve got answers
           </p>
         </div>
         

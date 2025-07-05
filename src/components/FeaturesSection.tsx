@@ -12,7 +12,7 @@ const features = [
   },
   {
     name: 'AI emails that get 3x higher reply rates',
-    description: 'Our AI crafts personalized messages by analyzing each prospect\'s company, role, and recent activities. No more generic templates that end up in spam.',
+    description: 'Our AI crafts personalized messages by analyzing each prospect&apos;s company, role, and recent activities. No more generic templates that end up in spam.',
     icon: MessageSquare,
     metric: '3x replies',
     timeframe: 'vs templates'
@@ -33,7 +33,7 @@ const features = [
   },
   {
     name: 'Enterprise-grade security & compliance',
-    description: 'SOC 2 compliant with GDPR, CAN-SPAM compliance built-in. Your data and your prospects\' data are protected with enterprise-level security.',
+    description: 'SOC 2 compliant with GDPR, CAN-SPAM compliance built-in. Your data and your prospects&apos; data are protected with enterprise-level security.',
     icon: Shield,
     metric: 'SOC 2',
     timeframe: 'compliant'
@@ -57,7 +57,7 @@ export default function FeaturesSection() {
             Everything you need to replace your sales team
           </p>
           <p className="mt-6 text-xl leading-8 text-gray-600">
-            From lead generation to deal closure, our AI handles your entire sales process with precision and scale that humans simply can't match.
+            From lead generation to deal closure, our AI handles your entire sales process with precision and scale that humans simply can&apos;t match.
           </p>
         </div>
         <div className="mx-auto mt-20 max-w-2xl sm:mt-24 lg:mt-32 lg:max-w-none">

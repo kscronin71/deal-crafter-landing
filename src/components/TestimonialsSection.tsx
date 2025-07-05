@@ -17,7 +17,7 @@ const testimonials = [
     role: 'CEO, AgencyScale',
     company: 'AgencyScale',
     image: '/api/placeholder/60/60',
-    content: 'We were spending $80k/year on sales reps who barely hit quota. Deal Crafter AI replaced our entire team for $20/month and we\'re closing more deals than ever.',
+    content: 'We were spending $80k/year on sales reps who barely hit quota. Deal Crafter AI replaced our entire team for $20/month and we&apos;re closing more deals than ever.',
     results: 'Replaced $80k team, 40% higher close rate',
     rating: 5
   },
@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
             See what our customers are saying
           </p>
           <p className="mt-6 text-xl leading-8 text-gray-600">
-            Join hundreds of founders who've transformed their sales with AI
+            Join hundreds of founders who&apos;ve transformed their sales with AI
           </p>
         </div>
         
