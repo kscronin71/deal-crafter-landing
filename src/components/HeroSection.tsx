@@ -2,115 +2,23 @@
 
 import { useState } from 'react';
 import SuccessAnimation from './SuccessAnimation';
-import EarlyAccessSuccessAnimation from './EarlyAccessSuccessAnimation';
 import LoadingAnimation from './LoadingAnimation';
 
 export default function HeroSection() {
-  const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccessAnimation, setShowSuccessAnimation] = useState(false);
-  const [showEarlyAccessAnimation, setShowEarlyAccessAnimation] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Email submitted:', email);
-    
-    try {
-      const response = await fetch('/api/signups', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, source: 'hero-section' }),
-      });
-
-      if (!response.ok) {
-        console.error('Failed to save email');
-      } else {
-        const data = await response.json();
-        console.log('Email saved successfully:', data.updated ? 'updated existing' : 'new signup');
-        
-        // Send welcome email immediately for new signups
-        if (!data.updated) {
-          try {
-            await fetch('/api/send-email', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ 
-                email: email, 
-                type: 'welcome' 
-              }),
-            });
-            console.log('Welcome email sent to:', email);
-          } catch (emailError) {
-            console.error('Error sending welcome email:', emailError);
-          }
-        }
-        
-        // Show early access animation for waitlist signup
-        setShowEarlyAccessAnimation(true);
-      }
-    } catch (error) {
-      console.error('Error saving email:', error);
-    }
-    
-    setEmail('');
+  const handleJoinWaitlist = () => {
+    // Open Tally form in new tab
+    window.open('https://tally.so/r/3yAX4g', '_blank');
   };
 
   const handleGetStarted = async () => {
-    if (!email) {
-      alert('Please enter your email first');
-      return;
-    }
-
-    console.log('Showing success animation for email:', email);
-    console.log('Current showSuccessAnimation state:', showSuccessAnimation);
     setShowSuccessAnimation(true);
-    console.log('Set showSuccessAnimation to true');
   };
 
   const handleAnimationComplete = async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to create checkout session');
-      }
-
-      const { sessionId } = await response.json();
-      
-      // Redirect to Stripe Checkout
-      const stripe = await import('@stripe/stripe-js');
-      const stripeInstance = await stripe.loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
-      
-      if (stripeInstance) {
-        const { error } = await stripeInstance.redirectToCheckout({ sessionId });
-        if (error) {
-          console.error('Stripe error:', error);
-        }
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Something went wrong. Please try again.');
-    } finally {
-      setIsLoading(false);
-      setShowSuccessAnimation(false);
-    }
-  };
-
-  const handleEarlyAccessComplete = () => {
-    console.log('Early access animation complete');
-    setShowEarlyAccessAnimation(false);
-    // Could add additional logic here like showing a thank you message
+    setIsLoading(false);
   };
 
   return (
@@ -152,35 +60,19 @@ export default function HeroSection() {
             </div>
           </div>
           
-          <form onSubmit={handleSubmit} className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-            <div className="w-full max-w-md">
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-xl border-0 bg-white/10 px-6 py-4 text-white placeholder:text-white/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black sm:text-lg"
-                placeholder="Enter your email address"
-              />
-            </div>
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
             <button
-              type="submit"
+              onClick={handleJoinWaitlist}
               className="w-full rounded-xl bg-white px-8 py-4 text-lg font-semibold text-black transition-all duration-200 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black sm:w-auto"
             >
               Join the early access list
             </button>
-          </form>
+          </div>
           
           <div className="mt-6">
             <button
               onClick={handleGetStarted}
-              disabled={isLoading || !email}
+              disabled={isLoading}
               className="w-full sm:w-auto rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:from-blue-500 hover:to-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
             >
               {isLoading ? 'Processing...' : 'Start Closing Deals - $20/month'}
@@ -211,15 +103,8 @@ export default function HeroSection() {
       
       {showSuccessAnimation && (
         <SuccessAnimation 
-          email={email} 
+          email={''}
           onComplete={handleAnimationComplete}
-        />
-      )}
-      
-      {showEarlyAccessAnimation && (
-        <EarlyAccessSuccessAnimation 
-          email={email} 
-          onComplete={handleEarlyAccessComplete}
         />
       )}
       
