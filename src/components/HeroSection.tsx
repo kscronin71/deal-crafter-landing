@@ -127,7 +127,7 @@ export default function HeroSection() {
           <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl lg:text-8xl">
             Tired of expensive sales reps who{' '}
             <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-              don't close deals?
+              don&apos;t close deals?
             </span>
           </h1>
           

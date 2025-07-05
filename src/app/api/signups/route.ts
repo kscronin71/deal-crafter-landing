@@ -22,16 +22,7 @@ interface Signup {
 
 const signupsFile = path.join(process.cwd(), 'signups.json');
 
-// Ensure signups file exists
-async function ensureSignupsFile() {
-  try {
-    const data = await fs.readFile(signupsFile, 'utf-8');
-    return JSON.parse(data);
-  } catch (error) {
-    await fs.writeFile(signupsFile, JSON.stringify([], null, 2));
-    return [];
-  }
-}
+
 
 async function readSignups(): Promise<Signup[]> {
   const data = await fs.readFile(signupsFile, 'utf-8');
@@ -101,8 +92,8 @@ export async function POST(request: NextRequest) {
         signup: newSignup
       });
     }
-  } catch (error) {
-    console.error('Error handling signup:', error);
+  } catch {
+    console.error('Error handling signup');
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -126,8 +117,8 @@ export async function GET() {
     };
 
     return NextResponse.json({ signups, analytics });
-  } catch (error) {
-    console.error('Error reading signups:', error);
+  } catch {
+    console.error('Error reading signups');
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 } 

@@ -85,7 +85,7 @@ export default function EarlyAccessSuccessAnimation({ email, onComplete }: Early
                 Early Access Granted
               </h3>
               <p className="text-gray-600 text-sm">
-                You're now on the exclusive waitlist
+                You&apos;re now on the exclusive waitlist
               </p>
             </div>
           )}
@@ -116,7 +116,7 @@ export default function EarlyAccessSuccessAnimation({ email, onComplete }: Early
                 Welcome to the Family!
               </h3>
               <p className="text-gray-600 mb-6">
-                You'll be the first to know when we launch
+                You&apos;ll be the first to know when we launch
               </p>
               
               {/* Early access benefits */}
@@ -137,7 +137,7 @@ export default function EarlyAccessSuccessAnimation({ email, onComplete }: Early
 
               <div className="flex items-center justify-center text-sm text-gray-500">
                 <Users className="w-4 h-4 mr-2" />
-                You're now part of our exclusive community
+                You&apos;re now part of our exclusive community
               </div>
             </div>
           )}

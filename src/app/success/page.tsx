@@ -1,17 +1,18 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { CheckCircle, ArrowRight, Mail, Users, TrendingUp } from 'lucide-react';
 
-export default function SuccessPage() {
+function SuccessPage() {
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const sessionId = searchParams.get('session_id');
     const emailParam = searchParams.get('email');
 
     if (emailParam) {
@@ -73,9 +74,9 @@ export default function SuccessPage() {
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
           <p className="text-red-400 mb-4">Error: {error}</p>
-          <a href="/" className="text-blue-400 hover:text-blue-300">
+          <Link href="/" className="text-blue-400 hover:text-blue-300">
             Return to homepage
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -91,7 +92,7 @@ export default function SuccessPage() {
               Welcome to Deal Crafter AI!
             </h1>
             <p className="text-xl text-white/70">
-              You're now part of an exclusive group of founders replacing expensive sales teams with AI
+              You&apos;re now part of an exclusive group of founders replacing expensive sales teams with AI
             </p>
           </div>
         </div>
@@ -123,7 +124,7 @@ export default function SuccessPage() {
         </div>
 
         <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl p-8 border border-blue-500/30">
-          <h2 className="text-2xl font-bold mb-6">What's Next?</h2>
+          <h2 className="text-2xl font-bold mb-6">What&apos;s Next?</h2>
           
           <div className="space-y-6">
             <div className="flex items-start gap-4">
@@ -133,7 +134,7 @@ export default function SuccessPage() {
               <div>
                 <h3 className="font-semibold mb-2">Check Your Email</h3>
                 <p className="text-white/70">
-                  We've sent your welcome email to {email} with next steps and platform updates.
+                  We&apos;ve sent your welcome email to {email} with next steps and platform updates.
                 </p>
               </div>
             </div>
@@ -143,9 +144,9 @@ export default function SuccessPage() {
                 2
               </div>
               <div>
-                <h3 className="font-semibold mb-2">We'll Notify You</h3>
+                <h3 className="font-semibold mb-2">We&apos;ll Notify You</h3>
                 <p className="text-white/70">
-                  We'll send you an email as soon as the full platform is ready with your login credentials.
+                  We&apos;ll send you an email as soon as the full platform is ready with your login credentials.
                 </p>
               </div>
             </div>
@@ -157,7 +158,7 @@ export default function SuccessPage() {
               <div>
                 <h3 className="font-semibold mb-2">Start Closing Deals</h3>
                 <p className="text-white/70">
-                  Once the platform launches, you'll be able to send up to 5,000 emails per day and start seeing results immediately.
+                  Once the platform launches, you&apos;ll be able to send up to 5,000 emails per day and start seeing results immediately.
                 </p>
               </div>
             </div>
@@ -170,16 +171,24 @@ export default function SuccessPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/"
               className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-white/90 transition-colors"
             >
               Return to Homepage
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SuccessPageWrapper() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
+      <SuccessPage />
+    </Suspense>
   );
 } 

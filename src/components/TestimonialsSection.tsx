@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
                   
                   {/* Content */}
                   <blockquote className="text-lg leading-7 text-gray-600 mb-6">
-                    "{testimonial.content}"
+                    &quot;{testimonial.content}&quot;
                   </blockquote>
                   
                   {/* Results badge */}

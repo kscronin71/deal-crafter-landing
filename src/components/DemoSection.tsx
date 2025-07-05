@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Sparkles, Send, MessageSquare, TrendingUp, Users, Mail, Clock, CheckCircle, Zap, Target, BarChart3 } from 'lucide-react';
+import { useState } from 'react';
+import { Sparkles, Send, MessageSquare, TrendingUp, Users, Mail, CheckCircle, Zap, Target, BarChart3 } from 'lucide-react';
 import LoadingAnimation from './LoadingAnimation';
 
 interface Email {
@@ -714,7 +714,7 @@ export default function DemoSection() {
                   ) : (
                     <div className="text-center py-12">
                       <BarChart3 className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-600">Configure your campaign and click "Launch Scale Campaigns" to see the results</p>
+                      <p className="text-gray-600">Configure your campaign and click &quot;Launch Scale Campaigns&quot; to see the results</p>
                     </div>
                   )}
                 </div>

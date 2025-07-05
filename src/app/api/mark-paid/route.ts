@@ -26,7 +26,7 @@ async function readSignups(): Promise<Signup[]> {
   try {
     const data = await fs.readFile(signupsFile, 'utf-8');
     return JSON.parse(data);
-  } catch (error) {
+  } catch {
     return [];
   }
 }
@@ -77,8 +77,8 @@ export async function POST(request: NextRequest) {
       signup: updatedSignup
     });
 
-  } catch (error) {
-    console.error('Error marking user as paid:', error);
+  } catch {
+    console.error('Error marking user as paid');
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 } 

@@ -113,7 +113,7 @@ export default function SuccessAnimation({ email, onComplete }: SuccessAnimation
                 <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 rounded-full animate-ping opacity-20"></div>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                You're All Set!
+                You&apos;re All Set!
               </h3>
               <p className="text-gray-600 mb-6">
                 Ready to start closing deals with AI-powered automation

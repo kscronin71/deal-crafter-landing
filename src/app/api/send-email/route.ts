@@ -32,7 +32,7 @@ async function readSignups(): Promise<Signup[]> {
   try {
     const data = await fs.readFile(signupsFile, 'utf-8');
     return JSON.parse(data);
-  } catch (error) {
+  } catch {
     return [];
   }
 }
@@ -206,8 +206,8 @@ async function sendEmailWithSendGrid(email: string, template: { subject: string;
     await sgMail.send(msg);
     console.log(`✅ Email sent successfully to ${email}`);
     return true;
-  } catch (error) {
-    console.error('❌ SendGrid error:', error);
+  } catch {
+    console.error('❌ SendGrid error');
     return false;
   }
 }
@@ -304,8 +304,8 @@ export async function POST(request: NextRequest) {
       userStatus: signup.status
     });
 
-  } catch (error) {
-    console.error('Error sending email:', error);
+  } catch {
+    console.error('Error sending email');
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -358,8 +358,8 @@ export async function GET() {
       total: emailsToSend.length
     });
 
-  } catch (error) {
-    console.error('Error checking for emails to send:', error);
+  } catch {
+    console.error('Error checking for emails to send');
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 } 
