@@ -1,0 +1,100 @@
+[
+  {
+    "email": "kscronin71@gmail.com",
+    "source": "hero-section",
+    "timestamp": "2025-07-05T12:23:11.538Z",
+    "id": "1751701671807",
+    "lastUpdated": "2025-07-05T16:39:09.860Z",
+    "emailSequence": {
+      "welcomeSent": true,
+      "welcomeSentAt": "2025-07-05T13:47:45.601Z"
+    }
+  },
+  {
+    "email": "jamaljames@hotmail.com",
+    "source": "hero-section",
+    "timestamp": "2025-07-05T12:23:57.595Z",
+    "id": "1751701779439",
+    "lastUpdated": "2025-07-05T12:23:57.595Z",
+    "emailSequence": {
+      "welcomeSent": true,
+      "welcomeSentAt": "2025-07-05T13:47:45.602Z"
+    }
+  },
+  {
+    "email": "devtest123@devsense.comn",
+    "source": "hero-section",
+    "timestamp": "2025-07-05T12:24:15.719Z",
+    "id": "1751718255719",
+    "emailSequence": {
+      "welcomeSent": true,
+      "welcomeSentAt": "2025-07-05T13:47:45.602Z"
+    }
+  },
+  {
+    "email": "ac123@gmail.com",
+    "source": "cta-section",
+    "timestamp": "2025-07-05T13:02:08.538Z",
+    "id": "1751720528538",
+    "emailSequence": {
+      "welcomeSent": true,
+      "welcomeSentAt": "2025-07-05T13:47:45.602Z"
+    }
+  },
+  {
+    "email": "kevin@leadcrafter.ai",
+    "source": "test-script",
+    "timestamp": "2025-07-05T13:55:01.406Z",
+    "id": "1751723701406",
+    "status": "early-access",
+    "emailSequence": {
+      "welcomeSent": true,
+      "welcomeSentAt": "2025-07-05T13:55:02.303Z",
+      "followUpSent": false,
+      "onboardingSent": false
+    },
+    "lastUpdated": "2025-07-05T14:03:55.389Z"
+  },
+  {
+    "email": "test@leadcrafter.ai",
+    "source": "test-script",
+    "timestamp": "2025-07-05T14:27:46.547Z",
+    "id": "1751725666547",
+    "status": "early-access",
+    "emailSequence": {
+      "welcomeSent": true,
+      "welcomeSentAt": "2025-07-05T14:27:47.238Z",
+      "followUpSent": false,
+      "onboardingSent": false
+    },
+    "lastUpdated": "2025-07-05T14:27:47.238Z"
+  },
+  {
+    "email": "kevin@dealcrafter.ai",
+    "source": "hero-section",
+    "timestamp": "2025-07-05T14:28:47.486Z",
+    "id": "1751725727486",
+    "status": "early-access",
+    "emailSequence": {
+      "welcomeSent": true,
+      "welcomeSentAt": "2025-07-05T14:28:47.789Z",
+      "followUpSent": false,
+      "onboardingSent": false
+    },
+    "lastUpdated": "2025-07-05T14:28:47.788Z"
+  },
+  {
+    "email": "sabrinacronin@gmail.com",
+    "source": "cta-section",
+    "timestamp": "2025-07-05T14:33:09.997Z",
+    "id": "1751725989997",
+    "status": "early-access",
+    "emailSequence": {
+      "welcomeSent": true,
+      "welcomeSentAt": "2025-07-05T14:33:10.349Z",
+      "followUpSent": false,
+      "onboardingSent": false
+    },
+    "lastUpdated": "2025-07-05T14:33:10.349Z"
+  }
+]
