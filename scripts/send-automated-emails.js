@@ -235,10 +235,10 @@ async function sendAutomatedEmails() {
         }
       }
 
-      // Send follow-up email after 3 days for early access users
+      // Send follow-up email after 3 days for early access users (or force for testing)
       if (signup.status === 'early-access' && 
           !signup.emailSequence?.followUpSent && 
-          daysSinceSignup >= 3) {
+          (daysSinceSignup >= 3 || process.env.FORCE_EMAILS === 'true')) {
         
         const success = await sendEmail(signup.email, emailTemplates.earlyAccessFollowUp);
         if (success) {
@@ -254,10 +254,10 @@ async function sendAutomatedEmails() {
         }
       }
 
-      // Send onboarding reminder after 7 days for paid users
+      // Send onboarding reminder after 7 days for paid users (or force for testing)
       if (signup.status === 'paid' && 
           !signup.emailSequence?.onboardingSent && 
-          daysSinceSignup >= 7) {
+          (daysSinceSignup >= 7 || process.env.FORCE_EMAILS === 'true')) {
         
         const success = await sendEmail(signup.email, emailTemplates.onboardingReminder);
         if (success) {
