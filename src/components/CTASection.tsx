@@ -1,12 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import SuccessAnimation from './SuccessAnimation';
 import LoadingAnimation from './LoadingAnimation';
 
 export default function CTASection() {
   const [isLoading, setIsLoading] = useState(false);
-  const [showSuccessAnimation, setShowSuccessAnimation] = useState(false);
+  const [email, setEmail] = useState('');
 
   const handleJoinWaitlist = () => {
     // Open Tally form in new tab
@@ -14,11 +13,36 @@ export default function CTASection() {
   };
 
   const handleGetStarted = async () => {
-    setShowSuccessAnimation(true);
-  };
+    if (!email) {
+      alert('Please enter your email address');
+      return;
+    }
 
-  const handleAnimationComplete = async () => {
-    setIsLoading(false);
+    setIsLoading(true);
+    
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (data.sessionId) {
+        // Redirect to Stripe checkout
+        window.location.href = `https://checkout.stripe.com/pay/${data.sessionId}`;
+      } else {
+        throw new Error(data.error || 'Failed to create checkout session');
+      }
+    } catch (error) {
+      console.error('Error creating checkout session:', error);
+      alert('Failed to create checkout session. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -57,10 +81,21 @@ export default function CTASection() {
             </button>
           </div>
           
+          {/* Email input for checkout */}
+          <div className="mt-8 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email to get started"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+            />
+          </div>
+          
           <div className="mt-6">
             <button
               onClick={handleGetStarted}
-              disabled={isLoading}
+              disabled={isLoading || !email}
               className="w-full sm:w-auto rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:from-blue-500 hover:to-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
             >
               {isLoading ? 'Processing...' : 'Start Closing Deals - $20/month'}
@@ -72,13 +107,6 @@ export default function CTASection() {
           </p>
         </div>
       </div>
-      
-      {showSuccessAnimation && (
-        <SuccessAnimation 
-          email={''}
-          onComplete={handleAnimationComplete}
-        />
-      )}
       
       {isLoading && (
         <LoadingAnimation 

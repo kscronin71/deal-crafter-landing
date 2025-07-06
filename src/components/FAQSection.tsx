@@ -6,7 +6,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 const faqs = [
   {
     question: 'How does Deal Crafter AI find qualified leads?',
-    answer: 'We use advanced AI algorithms to scan millions of business profiles across LinkedIn, company databases, and industry directories. Our AI identifies prospects based on your target criteria including industry, company size, location, and decision-making role.'
+    answer: 'We use advanced AI algorithms to scan millions of business profiles across LinkedIn, company databases, and industry directories. Our AI identifies prospects based on your target criteria including industry, company size, location, and decision-making roles.'
   },
   {
     question: 'Are the AI-generated emails really personalized?',
