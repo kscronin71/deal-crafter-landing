@@ -6,11 +6,11 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 const faqs = [
   {
     question: 'How does Deal Crafter AI find qualified leads?',
-    answer: 'We use advanced AI algorithms to scan millions of business profiles across LinkedIn, company databases, and industry directories. Our AI identifies prospects based on your target criteria including industry, company size, location, and decision-making roles.'
+    answer: 'We use advanced technology to scan millions of business profiles across LinkedIn and other professional networks. Our system identifies prospects based on your target criteria including industry, company size, location, and decision-making roles.'
   },
   {
     question: 'Are the AI-generated emails really personalized?',
-    answer: 'Yes! Our AI analyzes each prospect&apos;s company, role, industry, and recent activities to create truly personalized messages. Unlike generic templates, every email is crafted specifically for that individual prospect to maximize reply rates.'
+    answer: 'Yes! Our system analyzes each prospect&apos;s company, role, industry, and recent activities to create truly personalized messages. Unlike generic templates, every email is crafted specifically for that individual prospect to maximize reply rates.'
   },
   {
     question: 'What if I&apos;m not satisfied with the results?',
@@ -21,8 +21,8 @@ const faqs = [
     answer: 'Setup takes just 5 minutes. Simply connect your email, define your target market, and our AI starts finding and reaching out to qualified prospects immediately. You&apos;ll see your first results within 24 hours.'
   },
   {
-    question: 'Can I customize the AI&apos;s approach?',
-    answer: 'Absolutely! You can set your own messaging tone, customize your value proposition, and even upload your own templates. The AI learns from your preferences and gets better over time.'
+    question: 'Can I customize the system&apos;s approach?',
+    answer: 'Absolutely! You can set your own messaging tone, customize your value proposition, and even upload your own templates. The system learns from your preferences and gets better over time.'
   },
   {
     question: 'Is this compliant with email regulations?',

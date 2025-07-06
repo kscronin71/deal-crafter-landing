@@ -18,9 +18,11 @@ export default function CTASection() {
       return;
     }
 
+    console.log('Starting checkout process for email:', email);
     setIsLoading(true);
     
     try {
+      console.log('Making API request to create checkout session...');
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: {
@@ -29,11 +31,14 @@ export default function CTASection() {
         body: JSON.stringify({ email }),
       });
 
+      console.log('Response status:', response.status);
       const data = await response.json();
+      console.log('Response data:', data);
 
       if (data.sessionId) {
+        console.log('Redirecting to Stripe checkout:', `https://checkout.stripe.com/c/pay/${data.sessionId}`);
         // Redirect to Stripe checkout
-        window.location.href = `https://checkout.stripe.com/pay/${data.sessionId}`;
+        window.location.href = `https://checkout.stripe.com/c/pay/${data.sessionId}`;
       } else {
         throw new Error(data.error || 'Failed to create checkout session');
       }
